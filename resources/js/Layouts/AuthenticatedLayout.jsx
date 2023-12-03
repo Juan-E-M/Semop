@@ -24,6 +24,18 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
+                                <NavLink href={route('register-section.index')} active={route().current('register-section.index')}>
+                                    Registro
+                                </NavLink>
+                                <NavLink href={route('follow-section.index')} active={route().current('follow-section.index')}>
+                                    Seguimiento y Monitoreo
+                                </NavLink>
+                                <NavLink href={route('situation-section.index')} active={route().current('situation-section.index')}>
+                                    Situación
+                                </NavLink>
+                                <NavLink href={route('report-section.index')} active={route().current('report-section.index')}>
+                                    Reportes
+                                </NavLink>
                             </div>
                         </div>
 
@@ -94,6 +106,18 @@ export default function Authenticated({ auth, header, children }) {
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('register-section.index')} active={route().current('register-section.index')}>
+                            Registro
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('follow-section.index')} active={route().current('follow-section.index')}>
+                            Seguimiento y Monitoreo
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('situation-section.index')} active={route().current('situation-section.index')}>
+                            Situación
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('report-section.index')} active={route().current('report-section.index')}>
+                            Reportes
                         </ResponsiveNavLink>
                     </div>
 

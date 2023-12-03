@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterSectionController;
 use Inertia\Inertia;
 
 /*
@@ -34,6 +35,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    require __DIR__.'/register_section_routes.php';
+    require __DIR__.'/follow_section_routes.php';
+    require __DIR__.'/situation_section_routes.php';
+    require __DIR__.'/report_section_routes.php';
 
     Route::middleware(['checkrole:admin'])->group(function () {
 
