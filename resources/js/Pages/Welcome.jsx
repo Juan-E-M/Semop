@@ -7,9 +7,6 @@ export default function Welcome(props) {
           <div className="relative flex flex-col justify-center items-center h-screen bg-dots-darker bg-center bg-white dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             <div className="container mx-auto py-8 px-4 text-center">
               <h1 className="text-2xl md:text-4xl font-bold mb-4">SEMOP</h1>
-              <h6 className="text-xs md:text-sm font-normal text-gray-500 mb-4">
-                Developed by Ocean
-              </h6>
               <div className="flex items-center justify-center space-x-4 mt-auto">
                 {props.auth.user ? (
                   <Link

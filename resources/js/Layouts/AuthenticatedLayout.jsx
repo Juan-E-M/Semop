@@ -7,7 +7,6 @@ import { Link } from '@inertiajs/react';
 
 export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
@@ -36,6 +35,11 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('report-section.index')} active={route().current('report-section.index')}>
                                     Reportes
                                 </NavLink>
+                                {auth.user.role_id == 1 &&
+                                    <NavLink href={route('users.index')} active={route().current('users.index')}>
+                                        Usuarios
+                                    </NavLink>
+                                }
                             </div>
                         </div>
 
@@ -67,9 +71,9 @@ export default function Authenticated({ auth, header, children }) {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
-                                        <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                                        <Dropdown.Link href={route('profile.edit')}>Perfil</Dropdown.Link>
                                         <Dropdown.Link href={route('logout')} method="post" as="button">
-                                            Log Out
+                                            Cerrar sesión
                                         </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
@@ -119,6 +123,10 @@ export default function Authenticated({ auth, header, children }) {
                         <ResponsiveNavLink href={route('report-section.index')} active={route().current('report-section.index')}>
                             Reportes
                         </ResponsiveNavLink>
+                        {auth.user.role_id == 1 &&
+                        <ResponsiveNavLink href={route('users.index')} active={route().current('users.index')}>
+                            Usuarios
+                        </ResponsiveNavLink>}
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
@@ -130,9 +138,9 @@ export default function Authenticated({ auth, header, children }) {
                         </div>
 
                         <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route('profile.edit')}>Profile</ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('profile.edit')}>Perfil</ResponsiveNavLink>
                             <ResponsiveNavLink method="post" href={route('logout')} as="button">
-                                Log Out
+                                Cerrar sesión
                             </ResponsiveNavLink>
                         </div>
                     </div>

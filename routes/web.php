@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterSectionController;
@@ -43,7 +44,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     require __DIR__.'/report_section_routes.php';
 
     Route::middleware(['checkrole:admin'])->group(function () {
-
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::get('/user/{user_id?}', [UserController::class, 'create'])->name('users.create');
+        Route::delete('/user/{user_id}', [UserController::class, 'delete'])->name('users.delete');
     });
 
     Route::middleware(['checkrole:user'])->group(function () {
